@@ -937,7 +937,7 @@ class CyrusTest(common.Test):
         cmd = Template(_t).substitute(db=db)
         try:
             subprocess.check_call(args=cmd, shell=True)
-        except:
+        except Exception:
             shutil.rmtree(CONF_DIR, ignore_errors=True)
             CONF_DIR = None
 
@@ -1045,7 +1045,7 @@ class SASLTest(common.Test):
         p = conn.output_data()[4]
         try:
             return ord(p) if isinstance(p, str) else int(p)
-        except:
+        except Exception:
             assert False, "could not convert protocol"
 
     def test_sasl_disabled(self):

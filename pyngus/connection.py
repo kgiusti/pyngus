@@ -328,7 +328,7 @@ class Connection(Endpoint):
         # the exception:
         try:
             self._pn_ssl = self._configure_ssl(properties)
-        except:
+        except Exception:
             self.destroy()
             raise
 
