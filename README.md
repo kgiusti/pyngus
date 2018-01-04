@@ -7,6 +7,11 @@ callback-based API for message passing.
 
 See the User Guide in the docs directory for more detail.
 
+## Release 2.2.2 ##
+
+* verified Python 3.6 compatibility
+* bumped max proton version to 0.19
+
 ## Release 2.2.1 ##
 
 * disable the socket I/O logging - fills the debug logs with lots of
