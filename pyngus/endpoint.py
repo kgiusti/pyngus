@@ -118,8 +118,6 @@ class Endpoint(object):
         """Called when the Proton Engine generates an endpoint state change
         event.
         """
-        LOG.debug("Endpoint %s event: %s",
-                  self._name, Endpoint.EVENT_NAMES[event])
         state_fsm = Endpoint._FSM[self._state]
         entry = state_fsm.get(event)
         if not entry:
@@ -131,10 +129,6 @@ class Endpoint(object):
                             Endpoint.STATE_NAMES[old_state]))
             return
 
-        LOG.debug("Endpoint %s Old State: %s New State: %s",
-                  self._name,
-                  Endpoint.STATE_NAMES[self._state],
-                  Endpoint.STATE_NAMES[entry[0]])
         self._state = entry[0]
         if entry[1]:
             entry[1](self)
