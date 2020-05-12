@@ -428,12 +428,12 @@ class Connection(Endpoint):
         self._handler = None
         self._properties = None
         tmp = self._sender_links.copy()
-        for l in tmp.values():
-            l.destroy()
+        for link in tmp.values():
+            link.destroy()
         assert(len(self._sender_links) == 0)
         tmp = self._receiver_links.copy()
-        for l in tmp.values():
-            l.destroy()
+        for link in tmp.values():
+            link.destroy()
         assert(len(self._receiver_links) == 0)
         self._timers.clear()
         self._timers_heap = None

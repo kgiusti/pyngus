@@ -20,7 +20,7 @@
 import os
 from setuptools import setup
 
-_VERSION = "2.3.0"   # NOTE: update __init__.py too!
+_VERSION = "2.3.1"   # NOTE: update __init__.py too!
 
 setup(name="pyngus",
       version=_VERSION + os.environ.get('PYNGUS_VERSION_SUFFIX', ''),
