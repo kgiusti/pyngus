@@ -69,7 +69,7 @@ parser.add_option("-t", "--time", action="store_true", default=False,
 parser.add_option("-D", "--define", metavar="DEFINE", dest="defines",
                   action="append", default=[], help="define test parameters")
 parser.add_option("-x", "--xml", metavar="XML", dest="xml",
-                  help="write test results in Junit style xml suitable for use by CI tools etc")
+                  help="Deprecated")
 parser.add_option("-a", "--always-colorize", action="store_true", dest="always_colorize", default=False,
                   help="always colorize the test results rather than relying on terminal tty detection. Useful when invoked from Jython/Maven.")
 parser.add_option("-n", metavar="count", dest="count", type=int, default=1,
@@ -617,8 +617,8 @@ ignored = [t for t in h.tests if is_ignored(t.name())]
 total = len(filtered) + len(ignored)
 
 if opts.xml and not list_only:
-   xmlr = JunitXmlStyleReporter(opts.xml);
-   xmlr.begin();
+   print("xml option no longer supported - ignored")
+   xmlr = None
 else:
    xmlr = None
 

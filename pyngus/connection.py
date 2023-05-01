@@ -430,11 +430,11 @@ class Connection(Endpoint):
         tmp = self._sender_links.copy()
         for link in tmp.values():
             link.destroy()
-        assert(len(self._sender_links) == 0)
+        assert len(self._sender_links) == 0
         tmp = self._receiver_links.copy()
         for link in tmp.values():
             link.destroy()
-        assert(len(self._receiver_links) == 0)
+        assert len(self._receiver_links) == 0
         self._timers.clear()
         self._timers_heap = None
         self._container.remove_connection(self._name)
