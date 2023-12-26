@@ -49,15 +49,15 @@ fi
 rm -f *.pem
 
 # Create a self-signed certificate for the CA, and a private key to sign certificate requests:
-openssl req -x509 -out ca-certificate.pem -days 3650 -nodes -newkey rsa:2048 -keyout ca-private-key.pem -subj "/CN=example.ca.com" -passout pass:ca-password
+openssl req -x509 -out ca-certificate.pem -days 365000 -nodes -newkey rsa:2048 -keyout ca-private-key.pem -subj "/CN=example.ca.com" -passout pass:ca-password
 
 # Create a certificate for the server.  Use the CA's certificate to sign it:
-openssl req -out server-request.csr -days 3650 -newkey rsa:2048  -keyout server-private-key.pem -subj "/CN=*.server.com/OU=812" -passout pass:server-password
-openssl x509 -req -in server-request.csr -CA ca-certificate.pem -CAkey ca-private-key.pem -CAcreateserial -out server-certificate.pem -days 3650
+openssl req -out server-request.csr -days 365000 -newkey rsa:2048  -keyout server-private-key.pem -subj "/CN=*.server.com/OU=812" -passout pass:server-password
+openssl x509 -req -in server-request.csr -CA ca-certificate.pem -CAkey ca-private-key.pem -CAcreateserial -out server-certificate.pem -days 365000
 
 # Create a certificate for the client.  Use the CA's certificate to sign it:
-openssl req -out client-request.csr -days 3650 -newkey rsa:2048 -keyout client-private-key.pem -subj "/CN=my.client.com/OU=812" -passout pass:client-password
-openssl x509 -req -in client-request.csr -CA ca-certificate.pem -CAkey ca-private-key.pem -CAcreateserial -out client-certificate.pem -days 3650
+openssl req -out client-request.csr -days 365000 -newkey rsa:2048 -keyout client-private-key.pem -subj "/CN=my.client.com/OU=812" -passout pass:client-password
+openssl x509 -req -in client-request.csr -CA ca-certificate.pem -CAkey ca-private-key.pem -CAcreateserial -out client-certificate.pem -days 365000
 
 # clean up all the unnecessary stuff
 rm -f *.csr *.srl
